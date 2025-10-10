@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Système d'Alarme - Bright Smart Service</title>
+    <meta name="description" content="Installation et maintenance de systèmes d'alarme professionnels pour votre sécurité">
+    <meta name="keywords" content="alarme, sécurité, surveillance, protection, système d'alarme">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <style>
+        .service-feature-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .service-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .service-feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+        }
+
+        .service-feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-process {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .process-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+        }
+
+        .process-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+        }
+
+        .service-cta {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #ff8f50 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .service-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .service-cta .btn {
+            background: white;
+            color: var(--accent-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .tech-specs {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .tech-specs h3 {
+            margin-bottom: 30px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .spec-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+
+        .spec-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .spec-content p {
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body class="service-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <img src="../assets/img/bright.jpg" alt="Bright Smart Service">
+                <h1 class="sitename">Bright Smart Service</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="../index.html" data-i18n="navigation.home">Accueil</a></li>
+                    <li><a href="../services.html" class="active" data-i18n="navigation.services">Services</a></li>
+                    <li><a href="../contact.html" data-i18n="navigation.contact">Contact</a></li>
+                    <li><a href="../about.html" data-i18n="navigation.about">À propos</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="language-selector">
+                            <i class="bi bi-translate"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="changeLanguage('fr')" class="dropdown-item">Français</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')" class="dropdown-item">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Service Header Section -->
+        <section class="service-header section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h1>Système d'Alarme Professionnel</h1>
+                        <p class="lead">Protection complète et surveillance avancée pour votre tranquillité d'esprit</p>
+                        <div class="mt-4">
+                            <a href="../contact.html" class="btn btn-primary">Demander un devis</a>
+                            <a href="#features" class="btn btn-outline-primary ms-3">En savoir plus</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img src="../assets/img/services/services-3.webp" alt="Système d'Alarme" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features section">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2>Caractéristiques Principales</h2>
+                    <p>Des solutions de sécurité adaptées à vos besoins</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="service-feature-card">
+                            <div class="service-feature-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h3 class="service-feature-title">Protection 24/7</h3>
+                            <p class="service-feature-description">Surveillance continue de votre propriété avec alertes en temps réel sur votre smartphone.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-feature-card">
+                            <div class="service-feature-icon">
+                                <i class="bi bi-wifi"></i>
+                            </div>
+                            <h3 class="service-feature-title">Connectivité Smart</h3>
+                            <p class="service-feature-description">Système connecté avec contrôle à distance via application mobile et intégration domotique.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-feature-card">
+                            <div class="service-feature-icon">
+                                <i class="bi bi-battery-charging"></i>
+                            </div>
+                            <h3 class="service-feature-title">Batterie de Secours</h3>
+                            <p class="service-feature-description">Protection continue même en cas de coupure de courant avec batterie longue durée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="service-process section bg-light">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2>Notre Processus</h2>
+                    <p>Une installation professionnelle en 4 étapes</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                        <div class="process-step">
+                            <div class="process-number">1</div>
+                            <h3 class="process-title">Consultation</h3>
+                            <p>Évaluation de vos besoins et analyse de votre espace</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="process-step">
+                            <div class="process-number">2</div>
+                            <h3 class="process-title">Design</h3>
+                            <p>Conception d'une solution sur mesure</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="process-step">
+                            <div class="process-number">3</div>
+                            <h3 class="process-title">Installation</h3>
+                            <p>Mise en place professionnelle du système</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="process-step">
+                            <div class="process-number">4</div>
+                            <h3 class="process-title">Support</h3>
+                            <p>Maintenance continue et assistance technique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specifications -->
+        <section class="section">
+            <div class="container">
+                <div class="tech-specs">
+                    <h3>Spécifications Techniques</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="bi bi-cpu"></i>
+                                </div>
+                                <div class="spec-content">
+                                    <h4>Processeur Advanced RISC</h4>
+                                    <p>Traitement rapide des signaux et détection précise</p>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="bi bi-battery-full"></i>
+                                </div>
+                                <div class="spec-content">
+                                    <h4>Autonomie 48h</h4>
+                                    <p>Batterie de secours longue durée</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="bi bi-wifi"></i>
+                                </div>
+                                <div class="spec-content">
+                                    <h4>Connexion Double Bande</h4>
+                                    <p>WiFi 2.4GHz/5GHz + GSM backup</p>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-icon">
+                                    <i class="bi bi-phone"></i>
+                                </div>
+                                <div class="spec-content">
+                                    <h4>App Mobile Compatible</h4>
+                                    <p>iOS et Android avec notifications push</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="service-cta">
+                    <h3>Prêt à Sécuriser Votre Espace ?</h3>
+                    <p>Contactez-nous dès aujourd'hui pour une consultation gratuite</p>
+                    <a href="../contact.html" class="btn">Demander un Devis</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- À propos -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-about">
+                            <div class="logo d-flex align-items-center">
+                                <span>Bright Smart Service</span>
+                            </div>
+                            <p data-i18n="footer.about">Nous créons des solutions digitales innovantes pour transformer votre présence en ligne et stimuler votre croissance.</p>
+                            <div class="social-links d-flex mt-4">
+                                <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liens utiles -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.usefulLinks">Liens utiles</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../index.html" data-i18n="navigation.home">Accueil</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../about.html" data-i18n="navigation.about">À propos</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../services.html" data-i18n="navigation.services">Services</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../contact.html" data-i18n="navigation.contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nos services -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.ourServices">Nos services</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="network-administration.html" data-i18n="services.network">Network administration</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="graphic-design.html" data-i18n="services.graphic">Graphic Design</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="alarm-system.html" data-i18n="services.alarm">Alarm System</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="video-door-phone.html" data-i18n="services.video">Video Door Phone</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="software-engineering.html" data-i18n="services.software">Software Engineering</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="camera-security.html" data-i18n="services.camera">Camera of Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-contact">
+                            <h4 data-i18n="footer.contactUs">Contactez-nous</h4>
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                kano<br>
+                                Bertoua, Cameroun<br><br>
+                                <i class="bi bi-phone"></i> <a href="tel:+237688661642">+237 6 88 66 16 42</a><br>
+                                <i class="bi bi-envelope"></i> <a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 <strong>Bright Smart Service</strong>. <span data-i18n="footer.rights">Tous droits réservés</span></p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="credits">
+                            <a href="#" data-i18n="footer.legal">Mentions légales</a> | 
+                            <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Scroll Top Button -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Translation Files -->
+    <script src="../assets/js/i18n/fr.js"></script>
+    <script src="../assets/js/i18n/en.js"></script>
+    <script src="../assets/js/i18n/translator.js"></script>
+
+    <!-- Main JS File -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Caméras de Sécurité - Bright Smart Service</title>
+    <meta name="description" content="Solutions de vidéosurveillance professionnelles pour la sécurité de vos espaces">
+    <meta name="keywords" content="caméra sécurité, vidéosurveillance, CCTV, sécurité, surveillance vidéo">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <style>
+        .camera-feature-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .camera-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .camera-feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .coverage-area {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .coverage-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .coverage-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .coverage-content h4 {
+            margin-bottom: 10px;
+            color: var(--heading-color);
+        }
+
+        .camera-types {
+            margin: 40px 0;
+        }
+
+        .camera-type-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .camera-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .camera-type-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .features-list i {
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .service-cta {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #ff8f50 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .service-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .service-cta .btn {
+            background: white;
+            color: var(--accent-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .monitoring-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .monitoring-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .monitoring-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="service-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <img src="../assets/img/bright.jpg" alt="Bright Smart Service">
+                <h1 class="sitename">Bright Smart Service</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="../index.html" data-i18n="navigation.home">Accueil</a></li>
+                    <li><a href="../services.html" class="active" data-i18n="navigation.services">Services</a></li>
+                    <li><a href="../contact.html" data-i18n="navigation.contact">Contact</a></li>
+                    <li><a href="../about.html" data-i18n="navigation.about">À propos</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="language-selector">
+                            <i class="bi bi-translate"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="changeLanguage('fr')" class="dropdown-item">Français</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')" class="dropdown-item">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Service Header Section -->
+        <section class="service-header section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h1>Caméras de Sécurité</h1>
+                        <p class="lead">Solutions de vidéosurveillance avancées pour une protection optimale</p>
+                        <div class="mt-4">
+                            <a href="../contact.html" class="btn btn-primary">Demander un devis</a>
+                            <a href="#features" class="btn btn-outline-primary ms-3">Découvrir nos solutions</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img src="../assets/img/portfolio/portfolio-12.webp" alt="Caméras de Sécurité" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features section">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2>Caractéristiques Principales</h2>
+                    <p>Une surveillance de pointe pour votre sécurité</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="camera-feature-card">
+                            <div class="camera-feature-icon">
+                                <i class="bi bi-camera-video"></i>
+                            </div>
+                            <h3>Haute Définition 4K</h3>
+                            <p>Images ultra-nettes avec une résolution jusqu'à 4K pour capturer les moindres détails.</p>
+                            <ul class="features-list">
+                                <li><i class="bi bi-check-circle"></i>Résolution 4K Ultra HD</li>
+                                <li><i class="bi bi-check-circle"></i>Vision nocturne avancée</li>
+                                <li><i class="bi bi-check-circle"></i>Grand angle de vue</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="camera-feature-card">
+                            <div class="camera-feature-icon">
+                                <i class="bi bi-cloud"></i>
+                            </div>
+                            <h3>Stockage Cloud</h3>
+                            <p>Sauvegarde sécurisée dans le cloud avec accès instantané à vos enregistrements.</p>
+                            <ul class="features-list">
+                                <li><i class="bi bi-check-circle"></i>Stockage illimité</li>
+                                <li><i class="bi bi-check-circle"></i>Accès à distance</li>
+                                <li><i class="bi bi-check-circle"></i>Backup automatique</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="camera-feature-card">
+                            <div class="camera-feature-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h3>Intelligence Artificielle</h3>
+                            <p>Détection intelligente des mouvements et analyse comportementale avancée.</p>
+                            <ul class="features-list">
+                                <li><i class="bi bi-check-circle"></i>Détection de mouvement</li>
+                                <li><i class="bi bi-check-circle"></i>Reconnaissance faciale</li>
+                                <li><i class="bi bi-check-circle"></i>Alertes intelligentes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coverage Areas Section -->
+        <section class="coverage-area">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2>Zones de Couverture</h2>
+                    <p>Solutions adaptées à tous types d'espaces</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" data-aos="fade-up">
+                        <div class="coverage-item">
+                            <div class="coverage-icon">
+                                <i class="bi bi-building"></i>
+                            </div>
+                            <div class="coverage-content">
+                                <h4>Entreprises</h4>
+                                <p>Protection complète des locaux professionnels, entrepôts et zones de stockage.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="coverage-item">
+                            <div class="coverage-icon">
+                                <i class="bi bi-house"></i>
+                            </div>
+                            <div class="coverage-content">
+                                <h4>Résidentiel</h4>
+                                <p>Surveillance des maisons, appartements et propriétés privées.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="coverage-item">
+                            <div class="coverage-icon">
+                                <i class="bi bi-shop"></i>
+                            </div>
+                            <div class="coverage-content">
+                                <h4>Commerce</h4>
+                                <p>Protection des boutiques, restaurants et espaces commerciaux.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="coverage-item">
+                            <div class="coverage-icon">
+                                <i class="bi bi-tree"></i>
+                            </div>
+                            <div class="coverage-content">
+                                <h4>Extérieur</h4>
+                                <p>Surveillance des parkings, jardins et espaces extérieurs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitoring Section -->
+        <section class="monitoring-section">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2>Centre de Surveillance</h2>
+                    <p>Contrôle total de votre sécurité</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4" data-aos="fade-up">
+                        <div class="monitoring-card">
+                            <div class="monitoring-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <h3>Accès Mobile</h3>
+                            <p>Surveillez vos caméras en temps réel depuis votre smartphone ou tablette.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="monitoring-card">
+                            <div class="monitoring-icon">
+                                <i class="bi bi-bell"></i>
+                            </div>
+                            <h3>Notifications</h3>
+                            <p>Recevez des alertes instantanées en cas d'activité suspecte.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="monitoring-card">
+                            <div class="monitoring-icon">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <h3>Analyses</h3>
+                            <p>Rapports détaillés et statistiques sur l'activité surveillée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="service-cta">
+                    <h3>Sécurisez Vos Espaces</h3>
+                    <p>Contactez-nous pour une étude personnalisée de vos besoins en vidéosurveillance</p>
+                    <a href="../contact.html" class="btn">Demander un Devis</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- À propos -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-about">
+                            <div class="logo d-flex align-items-center">
+                                <span>Bright Smart Service</span>
+                            </div>
+                            <p data-i18n="footer.about">Nous créons des solutions digitales innovantes pour transformer votre présence en ligne et stimuler votre croissance.</p>
+                            <div class="social-links d-flex mt-4">
+                                <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liens utiles -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.usefulLinks">Liens utiles</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../index.html" data-i18n="navigation.home">Accueil</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../about.html" data-i18n="navigation.about">À propos</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../services.html" data-i18n="navigation.services">Services</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="../contact.html" data-i18n="navigation.contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nos services -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.ourServices">Nos services</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="network-administration.html" data-i18n="services.network">Network administration</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="graphic-design.html" data-i18n="services.graphic">Graphic Design</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="alarm-system.html" data-i18n="services.alarm">Alarm System</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="video-door-phone.html" data-i18n="services.video">Video Door Phone</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="software-engineering.html" data-i18n="services.software">Software Engineering</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="camera-security.html" data-i18n="services.camera">Camera of Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-contact">
+                            <h4 data-i18n="footer.contactUs">Contactez-nous</h4>
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                kano<br>
+                                Bertoua, Cameroun<br><br>
+                                <i class="bi bi-phone"></i> <a href="tel:+237688661642">+237 6 88 66 16 42</a><br>
+                                <i class="bi bi-envelope"></i> <a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 <strong>Bright Smart Service</strong>. <span data-i18n="footer.rights">Tous droits réservés</span></p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="credits">
+                            <a href="#" data-i18n="footer.legal">Mentions légales</a> | 
+                            <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Scroll Top Button -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Translation Files -->
+    <script src="../assets/js/i18n/fr.js"></script>
+    <script src="../assets/js/i18n/en.js"></script>
+    <script src="../assets/js/i18n/translator.js"></script>
+
+    <!-- Main JS File -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
