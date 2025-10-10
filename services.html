@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Nos Services - Bright Smart Service</title>
+    <meta name="description" content="Découvrez tous nos services professionnels">
+    <meta name="keywords" content="services, digital, web, sécurité">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <style>
+        /* Language Selector styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 8px 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+            color: var(--accent-color);
+        }
+
+        .current-lang {
+            font-weight: 500;
+        }
+
+        /* Modal styles */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .service-modal.active {
+            display: block;
+        }
+
+        .service-modal.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-option {
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-option:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-option i {
+            font-size: 2rem;
+        }
+
+        .contact-option span {
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="services-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <img src="assets/img/bright.jpg" alt="Bright Smart Service">
+                <h1 class="sitename">Bright Smart Service</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html" data-i18n="navigation.home">Accueil</a></li>
+                    <li><a href="services.html" class="active" data-i18n="navigation.services">Services</a></li>
+                    <li><a href="contact.html" data-i18n="navigation.contact">Contact</a></li>
+                    <li><a href="about.html" data-i18n="navigation.about">À propos</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="language-selector">
+                            <i class="bi bi-translate"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="changeLanguage('fr')" class="dropdown-item">Français</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')" class="dropdown-item">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Services Header Section -->
+        <section class="services-header section">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2 data-i18n="services.title">Nos Services</h2>
+                    <p data-i18n="services.subtitle">Découvrez notre gamme complète de services professionnels</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid Section -->
+        <section class="services-grid section">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- Network Administration -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h4 data-i18n="services.network">Network administration</h4>
+                            <p data-i18n="services.networkDesc">Administration et maintenance de réseaux informatiques professionnels</p>
+                            <div class="service-actions">
+                                <a href="service-pages/network-administration.html" class="service-link" data-i18n="services.details">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Network administration')" class="service-link" data-i18n="services.contact">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graphic Design -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <h4>Graphic Design</h4>
+                            <p>Création d'identités visuelles et supports de communication impactants</p>
+                            <div class="service-actions">
+                                <a href="service-pages/graphic-design.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alarm System -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h4>Alarm System</h4>
+                            <p>Installation et maintenance de systèmes d'alarme haute sécurité</p>
+                            <div class="service-actions">
+                                <a href="service-pages/alarm-system.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Alarm System')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Door Phone -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-camera-video"></i>
+                            </div>
+                            <h4>Video Door Phone</h4>
+                            <p>Installation de systèmes d'interphone vidéo modernes</p>
+                            <div class="service-actions">
+                                <a href="service-pages/video-door-phone.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Video Door Phone')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Software Engineering -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-code-square"></i>
+                            </div>
+                            <h4>Software Engineering</h4>
+                            <p>Développement de solutions logicielles sur mesure</p>
+                            <div class="service-actions">
+                                <a href="service-pages/software-engineering.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Software Engineering')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Camera of Security -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="bi bi-camera"></i>
+                            </div>
+                            <h4>Camera of Security</h4>
+                            <p>Installation de systèmes de vidéosurveillance professionnels</p>
+                            <div class="service-actions">
+                                <a href="service-pages/camera-security.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Camera of Security')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- À propos -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-about">
+                            <div class="logo d-flex align-items-center">
+                                <span>Bright Smart Service</span>
+                            </div>
+                            <p>Nous créons des solutions digitales innovantes pour transformer votre présence en ligne et stimuler votre croissance.</p>
+                            <div class="social-links d-flex mt-4">
+                                <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liens utiles -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4>Liens utiles</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="index.html">Accueil</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="about.html">À propos</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="services.html">Services</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nos services -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4>Nos services</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/network-administration.html">Network administration</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/graphic-design.html">Graphic Design</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/alarm-system.html">Alarm System</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/video-door-phone.html">Video Door Phone</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/software-engineering.html">Software Engineering</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/camera-security.html">Camera of Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-contact">
+                            <h4>Contactez-nous</h4>
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                kano<br>
+                                Bertoua, Cameroun<br><br>
+                                <i class="bi bi-phone"></i> <a href="tel:+237688661642">+237 6 88 66 16 42</a><br>
+                                <i class="bi bi-envelope"></i> <a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 <strong>Bright Smart Service</strong>. Tous droits réservés</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="credits">
+                            <a href="#">Mentions légales</a> | 
+                            <a href="#">Politique de confidentialité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Modal -->
+    <div class="service-modal" id="serviceModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeServiceModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-header">
+                <h3 class="modal-title">À propos du service de <span id="serviceTitle"></span></h3>
+            </div>
+            <div class="contact-options">
+                <a href="mailto:njonoussistephen@gmail.com" class="contact-option" id="emailOption">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>Par Email</span>
+                </a>
+                <a href="https://wa.me/237688661642" target="_blank" class="contact-option" id="whatsappOption">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>Par WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Scroll Top Button -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Translation Files -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
+    <script src="assets/js/i18n/translator.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <!-- Modal JS File -->
+    <script src="assets/js/modal.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Contact - Bright Smart Service</title>
+    <meta name="description" content="Contactez-nous pour tous vos besoins en services digitaux">
+    <meta name="keywords" content="contact, support, devis, assistance">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    
+    <style>
+        /* Language Selector styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 8px 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+            color: var(--accent-color);
+        }
+
+        .current-lang {
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="contact-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <img src="assets/img/bright.jpg" alt="Bright Smart Service">
+                <h1 class="sitename">Bright Smart Service</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html" data-i18n="navigation.home">Accueil</a></li>
+                    <li><a href="services.html" data-i18n="navigation.services">Services</a></li>
+                    <li><a href="contact.html" class="active" data-i18n="navigation.contact">Contact</a></li>
+                    <li><a href="about.html" data-i18n="navigation.about">À propos</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="language-selector">
+                            <i class="bi bi-translate"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="changeLanguage('fr')" class="dropdown-item">Français</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')" class="dropdown-item">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Contact Header Section -->
+        <section class="contact-header section">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2 data-i18n="contact.title">Contactez-nous</h2>
+                    <p data-i18n="contact.subtitle">Nous sommes là pour répondre à toutes vos questions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section">
+            <div class="container">
+                <div class="row gy-5">
+                    <!-- Contact Information -->
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <div>
+                                    <h4 data-i18n="contact.info.location">Localisation:</h4>
+                                    <p>kano<br>Bertoua, Cameroun</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="bi bi-envelope"></i>
+                                <div>
+                                    <h4 data-i18n="contact.info.email">Email:</h4>
+                                    <p><a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="bi bi-phone"></i>
+                                <div>
+                                    <h4 data-i18n="contact.info.phone">Téléphone:</h4>
+                                    <p><a href="tel:+237688661642">+237 6 88 66 16 42</a></p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <i class="bi bi-clock"></i>
+                                <div>
+                                    <h4 data-i18n="contact.info.hours">Heures d'ouverture:</h4>
+                                    <p>
+                                        <span data-i18n="contact.info.workingHours">Lundi - Vendredi</span><br>
+                                        <span data-i18n="contact.info.workingTime">9:00 - 17:00</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Links -->
+                        <div class="social-links mt-4">
+                            <h4 data-i18n="footer.followUs">Suivez-nous</h4>
+                            <div class="social-icons">
+                                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                        <form class="php-email-form">
+                            <div class="row gy-3">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" data-i18n="contact.form.name" placeholder="Votre Nom" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" data-i18n="contact.form.email" placeholder="Votre Email" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="subject" data-i18n="contact.form.subject" placeholder="Sujet" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <select class="form-control" name="service" required>
+                                        <option value="" data-i18n="contact.form.selectService">Sélectionnez un service</option>
+                                        <option value="network" data-i18n="services.network">Network administration</option>
+                                        <option value="graphic" data-i18n="services.graphic">Graphic Design</option>
+                                        <option value="alarm" data-i18n="services.alarm">Alarm System</option>
+                                        <option value="video" data-i18n="services.video">Video Door Phone</option>
+                                        <option value="software" data-i18n="services.software">Software Engineering</option>
+                                        <option value="camera" data-i18n="services.camera">Camera of Security</option>
+                                        <option value="other">Autre</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="6" data-i18n="contact.form.message" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <div class="loading" data-i18n="contact.form.loading">Chargement</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message" data-i18n="contact.form.success">Votre message a été envoyé. Merci!</div>
+                                    <button type="submit" data-i18n="contact.form.send">Envoyer le Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map section">
+            <div class="container-fluid p-0">
+                <div class="map-container" data-aos="fade-up">
+                    <!-- Remplacez le src par votre propre lien Google Maps -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15894.127520148144!2d13.6663396!3d4.5733357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10989a5c1c11111d%3A0xe85e3c320ad970e4!2sBertoua%2C%20Cameroun!5e0!3m2!1sfr!2sfr!4v1625836789012!5m2!1sfr!2sfr" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- À propos -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-about">
+                            <div class="logo d-flex align-items-center">
+                                <span>Bright Smart Service</span>
+                            </div>
+                            <p>Nous créons des solutions digitales innovantes pour transformer votre présence en ligne et stimuler votre croissance.</p>
+                            <div class="social-links d-flex mt-4">
+                                <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liens utiles -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.usefulLinks">Liens utiles</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="index.html" data-i18n="navigation.home">Accueil</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="about.html" data-i18n="navigation.about">À propos</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="services.html" data-i18n="navigation.services">Services</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="contact.html" data-i18n="navigation.contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nos services -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.ourServices">Nos services</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/network-administration.html">Network administration</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/graphic-design.html">Graphic Design</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/alarm-system.html">Alarm System</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/video-door-phone.html">Video Door Phone</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/software-engineering.html">Software Engineering</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/camera-security.html">Camera of Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-contact">
+                            <h4>Contactez-nous</h4>
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                kano<br>
+                                Bertoua, Cameroun<br><br>
+                                <i class="bi bi-phone"></i> <a href="tel:+237688661642">+237 6 88 66 16 42</a><br>
+                                <i class="bi bi-envelope"></i> <a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 <strong>Bright Smart Service</strong>. <span data-i18n="footer.rights">Tous droits réservés</span></p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="credits">
+                            <a href="#" data-i18n="footer.legal">Mentions légales</a> | 
+                            <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Scroll Top Button -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialiser EmailJS avec votre clé publique
+        emailjs.init("YOUR_PUBLIC_KEY");
+    </script>
+
+    <!-- Translation Files -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
+    <script src="assets/js/i18n/translator.js"></script>
+
+    <!-- Main JS Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact-form.js"></script>
+</body>
+</html>

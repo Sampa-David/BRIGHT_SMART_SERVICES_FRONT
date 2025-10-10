@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Network Administration - Bright Smart Service</title>
+    <meta name="description" content="Services d'administration réseau professionnels">
+    <meta name="keywords" content="network, administration, réseau, IT">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent-color: #ff6b00;
+            --accent-color-hover: #ff8533;
+            --heading-color: #333;
+        }
+        
+        /* Modal styles */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .service-modal.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-option {
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-option:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-option i {
+            font-size: 2rem;
+        }
+
+        .contact-option span {
+            font-weight: 500;
+        }
+
+        /* Service detail styles */
+        .service-detail {
+            padding: 80px 0;
+        }
+
+        .service-header {
+            background: var(--gradient-primary);
+            padding: 60px 0;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .service-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-content {
+            margin-bottom: 50px;
+        }
+
+        .service-image {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .service-features {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .video-gallery {
+            margin: 50px 0;
+        }
+
+        .video-container {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .cta-section {
+            background: var(--gradient-secondary);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            background: var(--accent-color-hover);
+            transform: translateY(-3px);
+        }
+
+        .cta-btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-btn-outline:hover {
+            background: white;
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .service-header {
+                padding: 40px 0;
+            }
+
+            .service-header h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <img src="../assets/img/bright.jpg" alt="Bright Smart Service">
+                <h1 class="sitename">Bright Smart Service</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../index.html#services" class="active">Services</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Service Header -->
+        <section class="service-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1>Network Administration</h1>
+                        <p class="lead">Solutions professionnelles d'administration et de maintenance de réseaux informatiques</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Details -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="service-image">
+                                <img src="../assets/img/services/network-admin.jpg" alt="Network Administration" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="service-description">
+                                <h2>Expertise en Administration Réseau</h2>
+                                <p>Notre service d'administration réseau offre une gestion complète et professionnelle de votre infrastructure informatique. Nous assurons la performance, la sécurité et la fiabilité de vos réseaux d'entreprise.</p>
+                                
+                                <div class="service-features">
+                                    <div class="feature-item">
+                                        <i class="bi bi-shield-check"></i>
+                                        <div>
+                                            <h4>Sécurité Renforcée</h4>
+                                            <p>Protection contre les menaces et surveillance continue de votre réseau</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="bi bi-speedometer2"></i>
+                                        <div>
+                                            <h4>Performance Optimale</h4>
+                                            <p>Optimisation du trafic et de la bande passante</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="bi bi-gear"></i>
+                                        <div>
+                                            <h4>Maintenance Proactive</h4>
+                                            <p>Interventions préventives et mises à jour régulières</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Gallery -->
+                <div class="video-gallery">
+                    <h2 class="text-center mb-5">Découvrez Notre Expertise en Action</h2>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Network Administration Overview"></iframe>
+                            </div>
+                            <h4>Vue d'ensemble de nos services</h4>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Network Security Solutions"></iframe>
+                            </div>
+                            <h4>Nos solutions de sécurité réseau</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-section">
+                    <div class="container">
+                        <h3>Prêt à Sécuriser Votre Réseau ?</h3>
+                        <p>Contactez-nous dès aujourd'hui pour une consultation gratuite</p>
+                        <div class="cta-buttons">
+                            <a href="javascript:void(0)" onclick="openServiceModal('Network Administration')" class="cta-btn cta-btn-primary">
+                                Demander un devis
+                            </a>
+                            <a href="../index.html#services" class="cta-btn cta-btn-outline">
+                                Explorer d'autres services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- [Footer content from index.html] -->
+    </footer>
+
+    <!-- Service Contact Modal -->
+    <div class="service-modal" id="serviceModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeServiceModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-header">
+                <h3 class="modal-title">À propos du service de <span id="serviceTitle"></span></h3>
+            </div>
+            <div class="contact-options">
+                <a href="mailto:njonoussistephen@gmail.com" class="contact-option" id="emailOption">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>Par Email</span>
+                </a>
+                <a href="https://wa.me/237688661642" target="_blank" class="contact-option" id="whatsappOption">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>Par WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Modal JS File -->
+    <script src="../assets/js/modal.js"></script>
+
+</body>
+
+</html>

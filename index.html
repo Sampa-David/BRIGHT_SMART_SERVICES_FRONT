@@ -10,9 +10,10 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+                    
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -24,6 +25,58 @@
     <link href="assets/css/main.css" rel="stylesheet">
     
     <style>
+        /* Language Selector styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 8px 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+            color: var(--accent-color);
+        }
+
+        .current-lang {
+            font-weight: 500;
+        }
+
         .btn-getstarted-container {
             position: absolute;
             bottom: 30px;
@@ -282,10 +335,21 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="active">Accueil</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#hero" class="active" data-i18n="navigation.home">Accueil</a></li>
+                    <li><a href="services.html" data-i18n="navigation.services">Services</a></li>
+                    <li><a href="contact.html" data-i18n="navigation.contact">Contact</a></li>
+                    <li><a href="about.html" data-i18n="navigation.about">À propos</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="language-selector">
+                            <i class="bi bi-translate"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="changeLanguage('fr')" class="dropdown-item">Français</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')" class="dropdown-item">English</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -299,24 +363,24 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
                         <div class="hero-content">
-                            <h1>Transformez Votre Présence Digitale</h1>
-                            <p style="font-size: 1.5rem; color: #ffffff; font-weight: 500; line-height: 1.6; margin-bottom: 2rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);">Nous créons des solutions digitales innovantes qui stimulent votre croissance et élèvent votre marque. Du développement web au marketing digital, nous sommes vos partenaires dans la transformation digitale.</p>
+                            <h1 data-i18n="hero.title">Transformez Votre Présence Digitale</h1>
+                            <p style="font-size: 1.5rem; color: #ffffff; font-weight: 500; line-height: 1.6; margin-bottom: 2rem; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);" data-i18n="hero.description">Nous créons des solutions digitales innovantes qui stimulent votre croissance et élèvent votre marque. Du développement web au marketing digital, nous sommes vos partenaires dans la transformation digitale.</p>
                             <div class="hero-buttons">
-                                <a href="#services" class="btn btn-primary">Nos Services</a>
-                                <a href="#portfolio" class="btn btn-outline">Nos Réalisations</a>
+                                <a href="#services" class="btn btn-primary" data-i18n="hero.services">Nos Services</a>
+                                <a href="#portfolio" class="btn btn-outline" data-i18n="hero.portfolio">Nos Réalisations</a>
                             </div>
                             <div class="hero-stats">
                                 <div class="stat-item">
                                     <span class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"></span>
-                                    <span class="stat-label">Projets Réalisés</span>
+                                    <span class="stat-label" data-i18n="stats.projects">Projets Réalisés</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1"></span>
-                                    <span class="stat-label">Clients Satisfaits</span>
+                                    <span class="stat-label" data-i18n="stats.clients">Clients Satisfaits</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number purecounter" data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1"></span>
-                                    <span class="stat-label">Experts</span>
+                                    <span class="stat-label" data-i18n="stats.experts">Experts</span>
                                 </div>
                             </div>
                         </div>
@@ -359,7 +423,10 @@
                             </div>
                             <h4>Network administration</h4>
                             <p>Administration et maintenance de réseaux informatiques professionnels</p>
-                            <a href="javascript:void(0)" onclick="openServiceModal('Network administration')" class="service-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                            <div class="service-actions">
+                                <a href="service-pages/network-administration.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Network administration')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
                         </div>
                     </div>
 
@@ -370,7 +437,10 @@
                             </div>
                             <h4>Graphic Design</h4>
                             <p>Création d'identités visuelles et supports de communication impactants</p>
-                            <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')" class="service-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                            <div class="service-actions">
+                                <a href="service-pages/graphic-design.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            </div>
                         </div>
                     </div>
 
@@ -569,86 +639,13 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
 
-    <!-- Modal JavaScript -->
-    <script>
-        // Fonction pour ouvrir le modal de liste des services
-        function openServicesListModal() {
-            const modal = document.getElementById('servicesListModal');
-            modal.style.display = 'block';
-            setTimeout(() => modal.classList.add('active'), 10);
-            document.body.style.overflow = 'hidden';
-        }
+    <!-- Translation Files -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
+    <script src="assets/js/i18n/translator.js"></script>
 
-        // Fonction pour fermer le modal de liste des services
-        function closeServicesListModal() {
-            const modal = document.getElementById('servicesListModal');
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        // Fonction pour filtrer les services
-        function filterServices(searchTerm) {
-            const serviceItems = document.querySelectorAll('.service-item');
-            const normalizedSearch = searchTerm.toLowerCase().trim();
-
-            serviceItems.forEach(item => {
-                const title = item.querySelector('h4').textContent.toLowerCase();
-                const description = item.querySelector('p').textContent.toLowerCase();
-                const matches = title.includes(normalizedSearch) || description.includes(normalizedSearch);
-                item.style.display = matches ? 'block' : 'none';
-            });
-        }
-
-        // Gérer le clic en dehors pour le modal de liste des services
-        document.getElementById('servicesListModal').onclick = function(event) {
-            if (event.target === this) {
-                closeServicesListModal();
-            }
-        };
-
-        // Fonction pour ouvrir le modal de service
-        function openServiceModal(serviceName) {
-            const modal = document.getElementById('serviceModal');
-            const serviceTitle = document.getElementById('serviceTitle');
-            const emailOption = document.getElementById('emailOption');
-            const whatsappOption = document.getElementById('whatsappOption');
-            
-            // Mettre à jour le titre
-            serviceTitle.textContent = serviceName;
-            
-            // Mettre à jour les liens avec le service
-            emailOption.href = `mailto:njonoussistephen@gmail.com?subject=Demande de service - ${serviceName}`;
-            whatsappOption.href = `https://wa.me/237688661642?text=Bonjour, je suis intéressé par votre service : ${serviceName}`;
-            
-            // Afficher le modal
-            modal.style.display = 'block';
-            setTimeout(() => modal.classList.add('active'), 10);
-            
-            // Empêcher le défilement de la page
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Fonction pour fermer le modal
-        function closeServiceModal() {
-            const modal = document.getElementById('serviceModal');
-            modal.classList.remove('active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
-
-        // Fermer le modal si on clique en dehors
-        window.onclick = function(event) {
-            const modal = document.getElementById('serviceModal');
-            if (event.target == modal) {
-                closeServiceModal();
-            }
-        }
-    </script>
+    <!-- Modal JS File -->
+    <script src="assets/js/modal.js"></script>
 
 </body>
 </html>

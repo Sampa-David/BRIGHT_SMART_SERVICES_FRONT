@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Graphic Design - Bright Smart Service</title>
+    <meta name="description" content="Services de design graphique professionnels">
+    <meta name="keywords" content="design graphique, création, visuel, communication">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent-color: #ff6b00;
+            --accent-color-hover: #ff8533;
+            --heading-color: #333;
+            
+            --gradient-secondary: linear-gradient(135deg, #333 0%, #666 100%);
+        }
+        
+        /* Modal styles */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .service-modal.active .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-option {
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-option:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-option i {
+            font-size: 2rem;
+        }
+
+        .contact-option span {
+            font-weight: 500;
+        }
+
+        /* Service detail styles */
+        .service-detail {
+            padding: 80px 0;
+        }
+
+        .service-header {
+           
+            padding: 60px 0;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .service-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .service-content {
+            margin-bottom: 50px;
+        }
+
+        .service-image {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .service-features {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .portfolio-gallery {
+            margin: 50px 0;
+        }
+
+        .portfolio-item {
+            position: relative;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .portfolio-caption {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 0 0 12px 12px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-caption {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .portfolio-caption h4 {
+            margin: 0 0 5px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .portfolio-caption p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .cta-section {
+            background: var(--gradient-secondary);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .cta-btn-primary:hover {
+            background: var(--accent-color-hover);
+            transform: translateY(-3px);
+        }
+
+        .cta-btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-btn-outline:hover {
+            background: white;
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .service-header {
+                padding: 40px 0;
+            }
+
+            .service-header h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-top {
+                padding: 40px 0 20px;
+            }
+            
+            .copyright {
+                text-align: center;
+            }
+            
+            .credits {
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (même que network-administration.html) -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <img src="../assets/img/bright.jpg" alt="Bright Smart Service">
+                <h1 class="sitename">Bright Smart Service</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../index.html#services" class="active">Services</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Service Header -->
+        <section class="service-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1>Graphic Design</h1>
+                        <p class="lead">Création d'identités visuelles et supports de communication impactants</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Details -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-content">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="service-image">
+                                <img src="../assets/img/services/graphic-design.jpg" alt="Graphic Design" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="service-description">
+                                <h2>Design Graphique Professionnel</h2>
+                                <p>Notre service de design graphique crée des identités visuelles uniques et des supports de communication percutants pour votre entreprise. Nous transformons vos idées en designs mémorables qui captivent votre audience.</p>
+                                
+                                <div class="service-features">
+                                    <div class="feature-item">
+                                        <i class="bi bi-palette"></i>
+                                        <div>
+                                            <h4>Création d'Identité Visuelle</h4>
+                                            <p>Logos, chartes graphiques et supports de marque</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="bi bi-file-earmark-image"></i>
+                                        <div>
+                                            <h4>Supports Marketing</h4>
+                                            <p>Flyers, brochures, affiches et bannières</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="bi bi-phone"></i>
+                                        <div>
+                                            <h4>Design Digital</h4>
+                                            <p>Visuels pour web et réseaux sociaux</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Gallery -->
+                <div class="portfolio-gallery">
+                    <h2 class="text-center mb-5">Nos Réalisations</h2>
+                    <div class="row g-4">
+                        <!-- Cartes de Visite -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="portfolio-item">
+                                <img src="https://cdn.dribbble.com/users/1789739/screenshots/14520436/media/a09a12c37d7079ba85ee47ce0d341cd2.png" alt="Carte de visite moderne" class="img-fluid rounded shadow">
+                                <div class="portfolio-caption">
+                                    <h4>Cartes de Visite</h4>
+                                    <p>Design minimaliste et élégant</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Flyers -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="portfolio-item">
+                                <img src="https://cdn.dribbble.com/users/2814832/screenshots/14334867/media/98a3c1c6c78283b67f101b7b7c5e96a5.jpg" alt="Flyer événementiel" class="img-fluid rounded shadow">
+                                <div class="portfolio-caption">
+                                    <h4>Flyers & Affiches</h4>
+                                    <p>Communication visuelle percutante</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Logos -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="portfolio-item">
+                                <img src="https://cdn.dribbble.com/users/1363206/screenshots/15341960/media/94484f9276aa719e61ec0e5487aba5c5.jpg" alt="Collection de logos" class="img-fluid rounded shadow">
+                                <div class="portfolio-caption">
+                                    <h4>Logos</h4>
+                                    <p>Identité visuelle unique</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Brochures -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="portfolio-item">
+                                <img src="https://cdn.dribbble.com/users/3459824/screenshots/14466250/media/5eb54e1f56d117c6a79daf28ce94048d.jpg" alt="Brochure design" class="img-fluid rounded shadow">
+                                <div class="portfolio-caption">
+                                    <h4>Brochures</h4>
+                                    <p>Mise en page professionnelle</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Packaging -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="portfolio-item">
+                                <img src="https://cdn.dribbble.com/users/1789739/screenshots/15391130/media/467b1f5bdaab87160ab5cd9fd554c2f0.png" alt="Design packaging" class="img-fluid rounded shadow">
+                                <div class="portfolio-caption">
+                                    <h4>Packaging</h4>
+                                    <p>Design produit créatif</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Marketing Digital -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="portfolio-item">
+                                <img src="https://cdn.dribbble.com/users/4057472/screenshots/14291462/media/b42dddd7f51a72a4d85e43f7c008c53e.png" alt="Posts réseaux sociaux" class="img-fluid rounded shadow">
+                                <div class="portfolio-caption">
+                                    <h4>Marketing Digital</h4>
+                                    <p>Contenus réseaux sociaux</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="cta-section">
+                    <div class="container">
+                        <h3>Prêt à Donner Vie à Vos Idées ?</h3>
+                        <p>Contactez-nous pour discuter de votre projet</p>
+                        <div class="cta-buttons">
+                            <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')" class="cta-btn cta-btn-primary">
+                                Demander un devis
+                            </a>
+                            <a href="../index.html#services" class="cta-btn cta-btn-outline">
+                                Explorer d'autres services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="service-modal" id="serviceModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeServiceModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-header">
+                <h3 class="modal-title">À propos du service de <span id="serviceTitle"></span></h3>
+            </div>
+            <div class="contact-options">
+                <a href="mailto:njonoussistephen@gmail.com" class="contact-option" id="emailOption">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>Par Email</span>
+                </a>
+                <a href="https://wa.me/237688661642" target="_blank" class="contact-option" id="whatsappOption">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>Par WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Modal JS File -->
+    <script src="../assets/js/modal.js"></script>
+
+    <!-- Script d'initialisation du modal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fermer le modal quand on clique en dehors
+            const modal = document.getElementById('serviceModal');
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    closeServiceModal();
+                }
+            };
+
+            // S'assurer que le modal est initialisé correctement
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-about">
+                            <div class="logo">
+                                <span>Bright Smart Service</span>
+                            </div>
+                            <p>Nous créons des solutions digitales innovantes pour transformer votre présence en ligne et stimuler votre croissance.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-links">
+                            <h4>Liens utiles</h4>
+                            <ul>
+                                <li><a href="../index.html">Accueil</a></li>
+                                <li><a href="../index.html#about">À propos</a></li>
+                                <li><a href="../index.html#services">Services</a></li>
+                                <li><a href="../index.html#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-links">
+                            <h4>Nos services</h4>
+                            <ul>
+                                <li><a href="../service-pages/network-administration.html">Network administration</a></li>
+                                <li><a href="../service-pages/graphic-design.html">Graphic Design</a></li>
+                                <li><a href="#">Alarm System</a></li>
+                                <li><a href="#">Video Door Phone</a></li>
+                                <li><a href="#">Software Engineering</a></li>
+                                <li><a href="#">Camera of Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-contact">
+                            <h4>Contactez-nous</h4>
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                kano<br>
+                                Bertoua, Cameroun<br><br>
+                                <i class="bi bi-phone"></i> <a href="tel:+237688661642">+237 6 88 66 16 42</a><br>
+                                <i class="bi bi-envelope"></i> <a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 <strong>Bright Smart Service</strong>. Tous droits réservés</p>
+                <div class="credits">
+                    <a href="#">Mentions légales</a> | 
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

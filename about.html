@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>À propos - Bright Smart Service</title>
+    <meta name="description" content="Découvrez l'histoire et les valeurs de Bright Smart Service">
+    <meta name="keywords" content="à propos, histoire, équipe, valeurs, mission, vision">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    
+    <style>
+        /* Language Selector styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 8px 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+            color: var(--accent-color);
+        }
+
+        .current-lang {
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="about-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                <img src="assets/img/bright.jpg" alt="Bright Smart Service">
+                <h1 class="sitename" data-i18n="sitename">Bright Smart Service</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html" data-i18n="navigation.home">Accueil</a></li>
+                    <li><a href="services.html" data-i18n="navigation.services">Services</a></li>
+                    <li><a href="contact.html" data-i18n="navigation.contact">Contact</a></li>
+                    <li><a href="about.html" class="active" data-i18n="navigation.about">À propos</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="language-selector">
+                            <i class="bi bi-translate"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="changeLanguage('fr')" class="dropdown-item">Français</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')" class="dropdown-item">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- About Header Section -->
+        <section class="about-header section">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2 data-i18n="about.title">À propos de nous</h2>
+                    <p data-i18n="about.subtitle">Découvrez notre histoire et notre engagement envers l'excellence</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Mission Section -->
+        <section class="vision-mission section">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="vision-card">
+                            <div class="card-icon">
+                                <i class="bi bi-eye"></i>
+                            </div>
+                            <h3 data-i18n="about.vision.title">Notre Vision</h3>
+                            <p data-i18n="about.vision.description">Devenir le leader incontesté des solutions digitales et technologiques au Cameroun, en offrant des services innovants qui transforment la façon dont les entreprises et les particuliers interagissent avec la technologie.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="mission-card">
+                            <div class="card-icon">
+                                <i class="bi bi-flag"></i>
+                            </div>
+                            <h3 data-i18n="about.mission.title">Notre Mission</h3>
+                            <p data-i18n="about.mission.description">Fournir des solutions technologiques sur mesure qui répondent aux besoins spécifiques de nos clients, tout en maintenant les plus hauts standards de qualité et de service client.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Story Section -->
+        <section class="company-story section bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <img src="assets/img/about/about-9.webp" alt="Notre Histoire" class="img-fluid rounded">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="story-content">
+                            <h3 data-i18n="about.story.title">Notre Histoire</h3>
+                            <p data-i18n="about.story.description">Fondée en 2020, Bright Smart Service est née de la vision d'un groupe d'experts passionnés par la technologie et l'innovation. Notre parcours a commencé avec une simple idée : rendre la technologie accessible et efficace pour tous.</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span data-i18n="about.story.highlight1">Plus de 150 projets réalisés avec succès</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span data-i18n="about.story.highlight2">Une équipe de 24 experts dévoués</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span data-i18n="about.story.highlight3">Présence dans tout le Cameroun</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values section">
+            <div class="container">
+                <div class="section-title text-center" data-aos="fade-up">
+                    <h2 data-i18n="about.values.title">Nos Valeurs</h2>
+                    <p data-i18n="about.values.subtitle">Les principes qui guident nos actions au quotidien</p>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                        <div class="value-card">
+                            <div class="card-icon">
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h4 data-i18n="about.values.excellence.title">Excellence</h4>
+                            <p data-i18n="about.values.excellence.description">Nous visons l'excellence dans chaque projet et chaque interaction avec nos clients.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="value-card">
+                            <div class="card-icon">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h4 data-i18n="about.values.innovation.title">Innovation</h4>
+                            <p data-i18n="about.values.innovation.description">Nous embrassons les nouvelles technologies et les solutions créatives.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="value-card">
+                            <div class="card-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h4 data-i18n="about.values.teamwork.title">Travail d'équipe</h4>
+                            <p data-i18n="about.values.teamwork.description">La collaboration et le respect mutuel sont au cœur de notre succès.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="value-card">
+                            <div class="card-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h4 data-i18n="about.values.integrity.title">Intégrité</h4>
+                            <p data-i18n="about.values.integrity.description">Nous agissons avec honnêteté et transparence dans toutes nos relations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Stats Section -->
+        <section class="stats section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                        <div class="stat-item">
+                            <div class="stat-number">
+                                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"></span>
+                                <span>+</span>
+                            </div>
+                            <p data-i18n="about.stats.projects">Projets Réalisés</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-item">
+                            <div class="stat-number">
+                                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1"></span>
+                                <span>%</span>
+                            </div>
+                            <p data-i18n="about.stats.satisfaction">Taux de Satisfaction</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-item">
+                            <div class="stat-number">
+                                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1"></span>
+                                <span>+</span>
+                            </div>
+                            <p data-i18n="about.stats.experts">Experts</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-item">
+                            <div class="stat-number">
+                                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1"></span>
+                                <span>+</span>
+                            </div>
+                            <p data-i18n="about.stats.experience">Années d'Expérience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- À propos -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-about">
+                            <div class="logo d-flex align-items-center">
+                                <span>Bright Smart Service</span>
+                            </div>
+                            <p data-i18n="footer.about">Nous créons des solutions digitales innovantes pour transformer votre présence en ligne et stimuler votre croissance.</p>
+                            <div class="social-links d-flex mt-4">
+                                <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liens utiles -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.usefulLinks">Liens utiles</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="index.html" data-i18n="navigation.home">Accueil</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="about.html" data-i18n="navigation.about">À propos</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="services.html" data-i18n="navigation.services">Services</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="contact.html" data-i18n="navigation.contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nos services -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4 data-i18n="footer.ourServices">Nos services</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/network-administration.html" data-i18n="services.network">Network administration</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/graphic-design.html" data-i18n="services.graphic">Graphic Design</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/alarm-system.html" data-i18n="services.alarm">Alarm System</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/video-door-phone.html" data-i18n="services.video">Video Door Phone</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/software-engineering.html" data-i18n="services.software">Software Engineering</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/camera-security.html" data-i18n="services.camera">Camera of Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-contact">
+                            <h4 data-i18n="footer.contactUs">Contactez-nous</h4>
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                kano<br>
+                                Bertoua, Cameroun<br><br>
+                                <i class="bi bi-phone"></i> <a href="tel:+237688661642">+237 6 88 66 16 42</a><br>
+                                <i class="bi bi-envelope"></i> <a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 <strong>Bright Smart Service</strong>. <span data-i18n="footer.rights">Tous droits réservés</span></p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="credits">
+                            <a href="#" data-i18n="footer.legal">Mentions légales</a> | 
+                            <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Scroll Top Button -->
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Translation Files -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
+    <script src="assets/js/i18n/translator.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
