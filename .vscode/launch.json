@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open index.html",
+            "file": "${workspaceFolder}/index.html",
+            "runtimeArgs": [
+                "--disk-cache-size=1073741824",
+                "--enable-precise-memory-info",
+                "--disable-background-timer-throttling",
+                "--no-first-run",
+                "--enable-automation",
+                "--start-maximized"
+            ],
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true
+        }
+    ]
+}
