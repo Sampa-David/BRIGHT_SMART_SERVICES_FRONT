@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Service Details - Clarity Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Détails du Service - Bright Smart Service</title>
+  <meta name="description" content="Découvrez en détail nos services professionnels en sécurité, technologie et solutions digitales">
+  <meta name="keywords" content="services, sécurité, technologie, digital, caméra, alarme, réseau, développement">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -15,7 +15,222 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Custom styles for service details */
+    .service-details-page {
+      --service-primary: var(--accent-color);
+      --service-secondary: var(--accent-color-rgb);
+    }
+
+    .page-title {
+      background: linear-gradient(rgba(var(--accent-color-rgb), 0.9), rgba(var(--accent-color-rgb), 0.7)),
+                  url('assets/img/services-bg.jpg') center/cover;
+      padding: 100px 0 50px;
+      color: white;
+      position: relative;
+    }
+
+    .breadcrumbs {
+      padding: 0 0 20px;
+    }
+
+    .breadcrumbs .breadcrumb {
+      background: transparent;
+      margin: 0;
+      padding: 0;
+    }
+
+    .breadcrumbs .breadcrumb-item a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+    }
+
+    .breadcrumbs .breadcrumb-item.active {
+      color: white;
+    }
+
+    .title-wrapper {
+      text-align: center;
+    }
+
+    .title-wrapper h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .service-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-image {
+      margin: 30px 0;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.1);
+    }
+
+    .feature-item i {
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+
+    .process-steps {
+      position: relative;
+      padding: 30px 0;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #f0f0f0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      z-index: 1;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .service-info,
+    .service-testimonial,
+    .inquiry-form {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .service-facts {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .service-facts li {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .service-facts li:last-child {
+      border-bottom: none;
+    }
+
+    .fact-label {
+      color: #666;
+    }
+
+    .fact-value {
+      font-weight: 500;
+      color: var(--accent-color);
+    }
+
+    .testimonial-content {
+      position: relative;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-content::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 30px;
+      width: 20px;
+      height: 20px;
+      background: #f8f9fa;
+      transform: rotate(45deg);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-left: 20px;
+    }
+
+    .author-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .inquiry-form .form-control {
+      padding: 12px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .inquiry-form .form-control:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 0.2rem rgba(var(--accent-color-rgb), 0.25);
+    }
+
+    .btn-submit {
+      background: var(--accent-color);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-color-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.3);
+    }
+  </style>
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,44 +255,31 @@
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Clarity</h1>
+        <img src="assets/img/logo.webp" alt="Bright Smart Service">
+        <h1 class="sitename">Bright Smart Service</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+          <li><a href="index.html" data-i18n="navigation.home">Accueil</a></li>
+          <li><a href="services.html" class="active" data-i18n="navigation.services">Services</a></li>
+          <li><a href="contact.html" data-i18n="navigation.contact">Contact</a></li>
+          <li><a href="about.html" data-i18n="navigation.about">À propos</a></li>
+          <li class="dropdown">
+            <a href="#" class="language-selector">
+              <i class="bi bi-translate"></i>
+              <span class="current-lang">FR</span>
+              <i class="bi bi-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#" onclick="changeLanguage('fr')" class="dropdown-item">Français</a></li>
+              <li><a href="#" onclick="changeLanguage('en')" class="dropdown-item">English</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-      <a class="btn-getstarted" href="#about">Get Started</a>
-
     </div>
   </header>
 
@@ -85,19 +287,21 @@
 
     <!-- Page Title -->
     <div class="page-title">
-      <div class="breadcrumbs">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#"><i class="bi bi-house"></i> Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Category</a></li>
-            <li class="breadcrumb-item active current">Service Details</li>
-          </ol>
-        </nav>
-      </div>
+      <div class="container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Accueil</a></li>
+              <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+              <li class="breadcrumb-item active current" data-service-name>Détails du Service</li>
+            </ol>
+          </nav>
+        </div>
 
-      <div class="title-wrapper">
-        <h1>Service Details</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+        <div class="title-wrapper">
+          <h1 data-service-title>Détails du Service</h1>
+          <p data-service-subtitle>Découvrez en détail notre expertise et nos solutions sur mesure pour répondre à vos besoins.</p>
+        </div>
       </div>
     </div><!-- End Page Title -->
 
@@ -244,25 +448,36 @@
 
               <!-- Contact Form -->
               <div class="inquiry-form">
-                <h4>Get a Quote</h4>
-                <form action="forms/get-a-quote.php" method="post" class="php-email-form">
+                <h4>Demander un Devis</h4>
+                <form action="forms/contact.php" method="post" class="php-email-form">
                   <div class="form-group mb-3">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                    <label for="name" class="form-label">Nom complet</label>
+                    <input type="text" name="name" class="form-control" id="name" required>
                   </div>
                   <div class="form-group mb-3">
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required="">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" required>
                   </div>
                   <div class="form-group mb-3">
-                    <input type="tel" name="phone" class="form-control" id="phone" placeholder="Your Phone">
+                    <label for="phone" class="form-label">Téléphone</label>
+                    <input type="tel" name="phone" class="form-control" id="phone" required>
                   </div>
-                  <input type="hidden" name="subect" value="Service Quote Request">
+                  <div class="form-group mb-3">
+                    <label for="company" class="form-label">Entreprise (optionnel)</label>
+                    <input type="text" name="company" class="form-control" id="company">
+                  </div>
+                  <input type="hidden" name="service" id="service-type" value="">
                   <div class="form-group mb-4">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Tell us about your project requirements..." required=""></textarea>
+                    <label for="message" class="form-label">Votre message</label>
+                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Décrivez votre projet ou vos besoins..." required></textarea>
                   </div>
-                  <div class="loading">Loading</div>
+                  <div class="loading">Envoi en cours...</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                  <button type="submit" class="btn-submit w-100">Request Quote</button>
+                  <div class="sent-message">Votre message a été envoyé. Merci!</div>
+                  <button type="submit" class="btn-submit w-100">
+                    <i class="bi bi-send me-2"></i>
+                    Demander un devis
+                  </button>
                 </form>
               </div>
 
@@ -378,6 +593,86 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <!-- Service Details JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get service type from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceType = urlParams.get('service');
 
+      // Service data object
+      const services = {
+        network: {
+          title: "Network Administration",
+          subtitle: "Solutions professionnelles pour la gestion et la sécurité de vos réseaux",
+          description: "Notre service d'administration réseau assure une infrastructure informatique robuste et sécurisée pour votre entreprise.",
+          features: [
+            {
+              icon: "bi-shield-check",
+              title: "Sécurité Réseau",
+              description: "Protection avancée contre les cybermenaces"
+            },
+            {
+              icon: "bi-speedometer2",
+              title: "Performance Optimale",
+              description: "Surveillance et optimisation continues"
+            }
+          ],
+          facts: {
+            duration: "Support continu",
+            delivery: "24/7",
+            team: "Experts certifiés",
+            support: "Assistance prioritaire"
+          }
+        },
+        software: {
+          title: "Software Engineering",
+          subtitle: "Développement de solutions logicielles sur mesure",
+          description: "Création d'applications web et mobiles adaptées à vos besoins spécifiques.",
+          features: [
+            {
+              icon: "bi-code-square",
+              title: "Développement Sur Mesure",
+              description: "Solutions personnalisées pour votre entreprise"
+            },
+            {
+              icon: "bi-gear",
+              title: "Maintenance Continue",
+              description: "Support et mises à jour régulières"
+            }
+          ],
+          facts: {
+            duration: "3-6 mois",
+            delivery: "Progressive",
+            team: "Équipe dédiée",
+            support: "1 an inclus"
+          }
+        }
+        // Ajouter d'autres services ici...
+      };
+
+      // Update page content based on service type
+      if (serviceType && services[serviceType]) {
+        const service = services[serviceType];
+        
+        // Update breadcrumb and title
+        document.querySelector('[data-service-name]').textContent = service.title;
+        document.querySelector('[data-service-title]').textContent = service.title;
+        document.querySelector('[data-service-subtitle]').textContent = service.subtitle;
+        
+        // Update hidden input in form
+        document.getElementById('service-type').value = service.title;
+
+        // Update service facts if they exist
+        if (service.facts) {
+          document.querySelector('.fact-value.duration').textContent = service.facts.duration;
+          document.querySelector('.fact-value.delivery').textContent = service.facts.delivery;
+          document.querySelector('.fact-value.team').textContent = service.facts.team;
+          document.querySelector('.fact-value.support').textContent = service.facts.support;
+        }
+      }
+    });
+  </script>
+
+</body>
 </html>

@@ -38,6 +38,186 @@
             transition: all 0.3s ease;
         }
 
+        /* Services Header Styles */
+        .services-header {
+            background: linear-gradient(rgba(var(--accent-color-rgb), 0.9), rgba(var(--accent-color-rgb), 0.7)),
+                        url('assets/img/services-bg.jpg') center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .services-header .section-title h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .services-header .section-title p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Service Cards Styles */
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(var(--accent-color-rgb), 0.1) 0%, rgba(var(--accent-color-rgb), 0.05) 100%);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(var(--accent-color-rgb), 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+        }
+
+        .service-icon i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--accent-color);
+        }
+
+        .service-card:hover .service-icon i {
+            color: white;
+        }
+
+        .service-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+        }
+
+        .service-card p {
+            color: var(--text-color);
+            margin-bottom: 25px;
+        }
+
+        .service-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .service-link {
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-link:first-child {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .service-link:last-child {
+            background: rgba(var(--accent-color-rgb), 0.1);
+            color: var(--accent-color);
+        }
+
+        .service-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.2);
+        }
+
+        /* Quote Form Styles */
+        .quote-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+            margin-top: 80px;
+        }
+
+        .quote-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-form h3 {
+            color: var(--heading-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-control {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(var(--accent-color-rgb), 0.25);
+        }
+
+        .form-label {
+            color: var(--heading-color);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .submit-button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background: var(--accent-color-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.3);
+        }
+
         .language-selector:hover {
             background: rgba(255, 255, 255, 0.2);
         }
@@ -315,6 +495,102 @@
                                 <a href="service-pages/camera-security.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
                                 <a href="javascript:void(0)" onclick="openServiceModal('Camera of Security')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="quote-form" data-aos="fade-up">
+                            <h3>Demande de Devis</h3>
+                            <form id="quoteForm" class="needs-validation" novalidate>
+                                <div class="row g-4">
+                                    <!-- Informations personnelles -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name" class="form-label">Nom complet</label>
+                                            <input type="text" class="form-control" id="name" name="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Informations de contact -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone" class="form-label">Téléphone</label>
+                                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="company" class="form-label">Entreprise (optionnel)</label>
+                                            <input type="text" class="form-control" id="company" name="company">
+                                        </div>
+                                    </div>
+
+                                    <!-- Sélection du service -->
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="service" class="form-label">Service souhaité</label>
+                                            <select class="form-control" id="service" name="service" required>
+                                                <option value="">Sélectionnez un service</option>
+                                                <option value="network">Network administration</option>
+                                                <option value="graphic">Graphic Design</option>
+                                                <option value="alarm">Alarm System</option>
+                                                <option value="video">Video Door Phone</option>
+                                                <option value="software">Software Engineering</option>
+                                                <option value="camera">Camera of Security</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Budget et délai -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="budget" class="form-label">Budget estimé (FCFA)</label>
+                                            <input type="number" class="form-control" id="budget" name="budget" placeholder="Optionnel">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="timeline" class="form-label">Délai souhaité</label>
+                                            <select class="form-control" id="timeline" name="timeline">
+                                                <option value="">Sélectionnez un délai</option>
+                                                <option value="urgent">Urgent (< 1 semaine)</option>
+                                                <option value="normal">Normal (1-2 semaines)</option>
+                                                <option value="flexible">Flexible (2-4 semaines)</option>
+                                                <option value="planning">En phase de planification</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Description du projet -->
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="description" class="form-label">Description de votre projet</label>
+                                            <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bouton de soumission -->
+                                    <div class="col-12">
+                                        <button type="submit" class="submit-button">
+                                            Envoyer la demande de devis
+                                            <i class="bi bi-send ms-2"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

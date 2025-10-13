@@ -80,6 +80,166 @@
         .current-lang {
             font-weight: 500;
         }
+
+        /* Contact Form Styles */
+        .contact-info-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-control {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.25);
+        }
+
+        .social-contact {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-contact a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 50%;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-contact a:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-hours {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-hours h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .php-email-form .loading {
+            display: none;
+            background: #fff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .php-email-form .loading:before {
+            content: "";
+            display: inline-block;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            margin: 0 10px -6px 0;
+            border: 3px solid var(--accent-color);
+            border-top-color: transparent;
+            animation: animate-loading 1s linear infinite;
+        }
+
+        .php-email-form .error-message {
+            display: none;
+            color: #d63031;
+            background: #ffe5e5;
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .php-email-form .sent-message {
+            display: none;
+            color: #00b894;
+            background: #e5ffe7;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .php-email-form button[type="submit"] {
+            background: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .php-email-form button[type="submit"]:hover {
+            background: var(--accent-color-hover);
+            transform: translateY(-2px);
+        }
+
+        @keyframes animate-loading {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 
