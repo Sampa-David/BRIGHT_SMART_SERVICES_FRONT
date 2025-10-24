@@ -437,23 +437,24 @@ h6 {
   .navmenu ul {
     display: none;
     list-style: none;
-    position: fixed;
+    position: relative;
     top: 70px;
     left: 0;
     right: 0;
     padding: 20px;
     margin: 0;
-    background: var(--surface-color);
+    background: #7a66fc;
     border-radius: 0 0 15px 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(147, 147, 147, 0.3);
     overflow-y: auto;
     transition: all 0.3s ease;
     z-index: 9998;
+    border-radius: 12px;
   }
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-dropdown-color);
+    color: #ffffff;
     padding: 10px 20px;
     font-family: var(--nav-font);
     font-size: 17px;
@@ -505,12 +506,13 @@ h6 {
     z-index: 99;
     padding: 10px 0;
     margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
     transition: all 0.5s ease-in-out;
   }
 
   .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
+    background-color: rgba(255, 255, 255, 0.03);
   }
 
   .navmenu .dropdown>.dropdown-active {
@@ -551,10 +553,17 @@ h6 {
 
   .mobile-nav-active .navmenu a {
     padding: 10px 20px;
-    display: block;
+    display: flex;
     font-size: 16px;
-    color: var(--contrast-color);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .mobile-nav-active .navmenu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
   }
 
   .mobile-nav-active .navmenu .dropdown>a {
@@ -1132,18 +1141,43 @@ section:not(.hero)::after {
 }
 
 @media (max-width: 992px) {
-  .hero-wrapper {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .hero .container .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 2rem;
   }
 
+  .hero .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
   .hero-content {
-    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: left;
+  }
+
+  .hero .hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero .hero-content p {
+    font-size: 1rem !important;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .hero-visual .hero-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
   .hero .hero-buttons {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero .hero-stats {
@@ -1180,21 +1214,44 @@ section:not(.hero)::after {
 }
 
 @media (max-width: 768px) {
+  .hero .container .row {
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .hero .col-lg-6 {
+    padding: 0 10px;
+  }
+
   .hero .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
   }
   
   .hero .hero-content p {
-    font-size: 1.1rem;
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+    margin-bottom: 1rem;
   }
-  
-  .hero .hero-stats .stat-number {
-    font-size: 2rem;
+
+  .hero .hero-buttons {
+    gap: 0.5rem;
   }
-  
-  .hero-content {
-    margin: 1rem;
-    padding: 1.5rem;
+
+  .hero .hero-buttons .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .hero .hero-visual .hero-image {
+    margin-left: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero .hero-visual .hero-image img {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -4853,6 +4910,37 @@ section:not(.hero)::after {
 @media (max-width: 576px) {
   .error-404 .helpful-links .links-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/*--------------------------------------------------------------
+# Additional Responsive Styles
+--------------------------------------------------------------*/
+@media (max-width: 576px) {
+  .hero .container .row {
+    flex-direction: column;
+  }
+
+  .hero .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hero .hero-content {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero .hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero .hero-visual .hero-image {
+    margin: 0 auto;
   }
 }
 

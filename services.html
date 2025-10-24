@@ -20,8 +20,9 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-    <!-- Main CSS File -->
+    <!-- Main CSS Files -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/services-header.css" rel="stylesheet">
 
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
@@ -62,8 +63,8 @@
         /* Service Cards Styles */
         .service-card {
             background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
+            border-radius: 15px;
+            padding: 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             height: 100%;
@@ -71,24 +72,31 @@
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .service-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(var(--accent-color-rgb), 0.1) 0%, rgba(var(--accent-color-rgb), 0.05) 100%);
-            opacity: 0;
-            transition: all 0.4s ease;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-content {
+            padding: 25px;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
-        .service-card:hover::before {
-            opacity: 1;
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
         }
 
         .service-icon {
@@ -358,6 +366,98 @@
         .contact-option span {
             font-weight: 500;
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .services.section {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+                padding: 40px 0;
+            }
+
+            .service-card {
+                background: rgba(255, 255, 255, 0.98);
+                margin: 10px 0;
+                display: flex;
+                flex-direction: row;
+                height: auto;
+            }
+
+            .service-image {
+                width: 120px;
+                height: 120px;
+                min-width: 120px;
+                border-radius: 10px;
+                margin: 15px;
+            }
+
+            .service-content {
+                flex: 1;
+                padding: 15px;
+            }
+
+            .service-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+
+            .service-icon i {
+                font-size: 1.5rem;
+            }
+
+            .service-card h4 {
+                font-size: 1.1rem;
+                margin: 10px 0;
+            }
+
+            .service-card p {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .service-actions {
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
+
+            .service-link {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 107, 0, 0.1);
+                border-radius: 20px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-card {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .service-image {
+                width: 100px;
+                height: 100px;
+                min-width: 100px;
+                margin: 10px;
+            }
+
+            .service-content {
+                padding: 10px;
+            }
+
+            .service-actions {
+                flex-direction: column;
+            }
+
+            .service-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
@@ -397,9 +497,18 @@
         <!-- Services Header Section -->
         <section class="services-header section">
             <div class="container">
-                <div class="section-title text-center" data-aos="fade-up">
-                    <h2 data-i18n="services.title">Nos Services</h2>
-                    <p data-i18n="services.subtitle">Découvrez notre gamme complète de services professionnels</p>
+                <div class="section-title text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h2 data-i18n="services.title" style="color: #333;">Nos Services</h2>
+                    <p data-i18n="services.subtitle">Découvrez notre gamme complète de services professionnels conçus pour répondre à vos besoins technologiques</p>
+                </div>
+                <div class="row mt-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-md-8 text-center">
+                        <div class="d-flex justify-content-center gap-3">
+                            <span class="badge bg-primary px-3 py-2">Solutions Innovantes</span>
+                            <span class="badge bg-primary px-3 py-2">Support 24/7</span>
+                            <span class="badge bg-primary px-3 py-2">Expertise Technique</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -411,14 +520,26 @@
                     <!-- Network Administration -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-laptop"></i>
+                            <div class="service-image">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80" alt="Network Administration">
                             </div>
-                            <h4 data-i18n="services.network">Network administration</h4>
-                            <p data-i18n="services.networkDesc">Administration et maintenance de réseaux informatiques professionnels</p>
-                            <div class="service-actions">
-                                <a href="service-pages/network-administration.html" class="service-link" data-i18n="services.details">Voir les détails <i class="bi bi-arrow-right"></i></a>
-                                <a href="javascript:void(0)" onclick="openServiceModal('Network administration')" class="service-link" data-i18n="services.contact">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="bi bi-hdd-network"></i>
+                                </div>
+                                <h4 data-i18n="services.network">Administration Réseau</h4>
+                                <p data-i18n="services.networkDesc">Optimisation et maintenance de votre infrastructure réseau avec des solutions professionnelles de pointe.</p>
+                                <div class="service-features">
+                                    <ul>
+                                        <li><i class="bi bi-check-circle"></i> Configuration réseau avancée</li>
+                                        <li><i class="bi bi-check-circle"></i> Maintenance préventive</li>
+                                        <li><i class="bi bi-check-circle"></i> Support technique 24/7</li>
+                                    </ul>
+                                </div>
+                                <div class="service-actions">
+                                    <a href="service-pages/network-administration.html" class="service-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                                    <a href="javascript:void(0)" onclick="openServiceModal('Network administration')" class="service-link">Devis gratuit <i class="bi bi-chat-dots"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -426,14 +547,26 @@
                     <!-- Graphic Design -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-palette"></i>
+                            <div class="service-image">
+                                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80" alt="Design Graphique">
                             </div>
-                            <h4>Graphic Design</h4>
-                            <p>Création d'identités visuelles et supports de communication impactants</p>
-                            <div class="service-actions">
-                                <a href="service-pages/graphic-design.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
-                                <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="bi bi-palette2"></i>
+                                </div>
+                                <h4>Design Graphique</h4>
+                                <p>Donnez vie à votre identité visuelle avec des créations uniques et impactantes.</p>
+                                <div class="service-features">
+                                    <ul>
+                                        <li><i class="bi bi-check-circle"></i> Création de logo & charte graphique</li>
+                                        <li><i class="bi bi-check-circle"></i> Supports marketing personnalisés</li>
+                                        <li><i class="bi bi-check-circle"></i> Design web responsive</li>
+                                    </ul>
+                                </div>
+                                <div class="service-actions">
+                                    <a href="service-pages/graphic-design.html" class="service-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                                    <a href="javascript:void(0)" onclick="openServiceModal('Graphic Design')" class="service-link">Devis gratuit <i class="bi bi-chat-dots"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -441,14 +574,26 @@
                     <!-- Alarm System -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-shield-check"></i>
+                            <div class="service-image">
+                                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80" alt="Système d'Alarme">
                             </div>
-                            <h4>Alarm System</h4>
-                            <p>Installation et maintenance de systèmes d'alarme haute sécurité</p>
-                            <div class="service-actions">
-                                <a href="service-pages/alarm-system.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
-                                <a href="javascript:void(0)" onclick="openServiceModal('Alarm System')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <h4>Système d'Alarme</h4>
+                                <p>Protégez vos locaux avec des solutions de sécurité intelligentes et fiables.</p>
+                                <div class="service-features">
+                                    <ul>
+                                        <li><i class="bi bi-check-circle"></i> Détection intelligente</li>
+                                        <li><i class="bi bi-check-circle"></i> Contrôle à distance</li>
+                                        <li><i class="bi bi-check-circle"></i> Installation professionnelle</li>
+                                    </ul>
+                                </div>
+                                <div class="service-actions">
+                                    <a href="service-pages/alarm-system.html" class="service-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                                    <a href="javascript:void(0)" onclick="openServiceModal('Alarm System')" class="service-link">Devis gratuit <i class="bi bi-chat-dots"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -456,14 +601,26 @@
                     <!-- Video Door Phone -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-camera-video"></i>
+                            <div class="service-image">
+                                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80" alt="Interphone Vidéo">
                             </div>
-                            <h4>Video Door Phone</h4>
-                            <p>Installation de systèmes d'interphone vidéo modernes</p>
-                            <div class="service-actions">
-                                <a href="service-pages/video-door-phone.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
-                                <a href="javascript:void(0)" onclick="openServiceModal('Video Door Phone')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="bi bi-camera-video"></i>
+                                </div>
+                                <h4>Interphone Vidéo</h4>
+                                <p>Sécurisez vos accès avec des solutions d'interphonie vidéo connectées.</p>
+                                <div class="service-features">
+                                    <ul>
+                                        <li><i class="bi bi-check-circle"></i> Vidéo HD & Audio cristallin</li>
+                                        <li><i class="bi bi-check-circle"></i> Contrôle via smartphone</li>
+                                        <li><i class="bi bi-check-circle"></i> Installation sur mesure</li>
+                                    </ul>
+                                </div>
+                                <div class="service-actions">
+                                    <a href="service-pages/video-door-phone.html" class="service-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                                    <a href="javascript:void(0)" onclick="openServiceModal('Video Door Phone')" class="service-link">Devis gratuit <i class="bi bi-chat-dots"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -471,14 +628,26 @@
                     <!-- Software Engineering -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                         <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-code-square"></i>
+                            <div class="service-image">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80" alt="Développement Logiciel">
                             </div>
-                            <h4>Software Engineering</h4>
-                            <p>Développement de solutions logicielles sur mesure</p>
-                            <div class="service-actions">
-                                <a href="service-pages/software-engineering.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
-                                <a href="javascript:void(0)" onclick="openServiceModal('Software Engineering')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="bi bi-code-square"></i>
+                                </div>
+                                <h4>Développement Logiciel</h4>
+                                <p>Solutions logicielles personnalisées pour optimiser vos processus métier.</p>
+                                <div class="service-features">
+                                    <ul>
+                                        <li><i class="bi bi-check-circle"></i> Applications web & mobile</li>
+                                        <li><i class="bi bi-check-circle"></i> Intégration API</li>
+                                        <li><i class="bi bi-check-circle"></i> Maintenance continue</li>
+                                    </ul>
+                                </div>
+                                <div class="service-actions">
+                                    <a href="service-pages/software-engineering.html" class="service-link">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                                    <a href="javascript:void(0)" onclick="openServiceModal('Software Engineering')" class="service-link">Devis gratuit <i class="bi bi-chat-dots"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -486,116 +655,27 @@
                     <!-- Camera of Security -->
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                         <div class="service-card">
-                            <div class="service-icon">
-                                <i class="bi bi-camera"></i>
+                            <div class="service-image">
+                                <img src="assets/img/portfolio/portfolio-7.webp" alt="Camera of Security">
                             </div>
-                            <h4>Camera of Security</h4>
-                            <p>Installation de systèmes de vidéosurveillance professionnels</p>
-                            <div class="service-actions">
-                                <a href="service-pages/camera-security.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
-                                <a href="javascript:void(0)" onclick="openServiceModal('Camera of Security')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quote Section -->
-        <section class="quote-section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="quote-form" data-aos="fade-up">
-                            <h3>Demande de Devis</h3>
-                            <form id="quoteForm" class="needs-validation" novalidate>
-                                <div class="row g-4">
-                                    <!-- Informations personnelles -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="name" class="form-label">Nom complet</label>
-                                            <input type="text" class="form-control" id="name" name="name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" required>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Informations de contact -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="phone" class="form-label">Téléphone</label>
-                                            <input type="tel" class="form-control" id="phone" name="phone" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="company" class="form-label">Entreprise (optionnel)</label>
-                                            <input type="text" class="form-control" id="company" name="company">
-                                        </div>
-                                    </div>
-
-                                    <!-- Sélection du service -->
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="service" class="form-label">Service souhaité</label>
-                                            <select class="form-control" id="service" name="service" required>
-                                                <option value="">Sélectionnez un service</option>
-                                                <option value="network">Network administration</option>
-                                                <option value="graphic">Graphic Design</option>
-                                                <option value="alarm">Alarm System</option>
-                                                <option value="video">Video Door Phone</option>
-                                                <option value="software">Software Engineering</option>
-                                                <option value="camera">Camera of Security</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <!-- Budget et délai -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="budget" class="form-label">Budget estimé (FCFA)</label>
-                                            <input type="number" class="form-control" id="budget" name="budget" placeholder="Optionnel">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="timeline" class="form-label">Délai souhaité</label>
-                                            <select class="form-control" id="timeline" name="timeline">
-                                                <option value="">Sélectionnez un délai</option>
-                                                <option value="urgent">Urgent (< 1 semaine)</option>
-                                                <option value="normal">Normal (1-2 semaines)</option>
-                                                <option value="flexible">Flexible (2-4 semaines)</option>
-                                                <option value="planning">En phase de planification</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <!-- Description du projet -->
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="description" class="form-label">Description de votre projet</label>
-                                            <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
-                                        </div>
-                                    </div>
-
-                                    <!-- Bouton de soumission -->
-                                    <div class="col-12">
-                                        <button type="submit" class="submit-button">
-                                            Envoyer la demande de devis
-                                            <i class="bi bi-send ms-2"></i>
-                                        </button>
-                                    </div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="bi bi-camera"></i>
                                 </div>
-                            </form>
+                                <h4>Camera of Security</h4>
+                                <p>Installation de systèmes de vidéosurveillance professionnels</p>
+                                <div class="service-actions">
+                                    <a href="service-pages/camera-security.html" class="service-link">Voir les détails <i class="bi bi-arrow-right"></i></a>
+                                    <a href="javascript:void(0)" onclick="openServiceModal('Camera of Security')" class="service-link">Nous contacter <i class="bi bi-chat-dots"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        
     </main>
 
     <!-- Footer -->

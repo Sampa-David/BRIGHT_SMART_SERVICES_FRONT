@@ -31,6 +31,46 @@
             --gradient-secondary: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
         }
 
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 25px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .tech-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+
+        .tech-item small {
+            color: #666;
+            font-size: 0.85rem;
+            display: block;
+        }
+
         /* Animation keyframes */
         @keyframes fadeInUp {
             from {
@@ -843,6 +883,54 @@
                     </div>
                 </div>
 
+                <!-- Technologies Section -->
+                <section class="section bg-light py-5">
+                    <div class="container">
+                        <div class="section-title text-center" data-aos="fade-up">
+                            <h2>Nos Technologies et Outils</h2>
+                            <p>Les meilleures solutions pour votre infrastructure réseau</p>
+                        </div>
+
+                        <div class="tech-stack-grid">
+                            <div class="tech-item" data-aos="fade-up">
+                                <i class="tech-icon bi bi-hdd-network"></i>
+                                <div class="tech-name">Cisco Systems</div>
+                                <small>Infrastructure réseau</small>
+                            </div>
+                            
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="100">
+                                <i class="tech-icon bi bi-shield-check"></i>
+                                <div class="tech-name">Fortinet</div>
+                                <small>Sécurité réseau</small>
+                            </div>
+
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="200">
+                                <i class="tech-icon bi bi-diagram-3"></i>
+                                <div class="tech-name">VMware</div>
+                                <small>Virtualisation</small>
+                            </div>
+
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="300">
+                                <i class="tech-icon bi bi-cloud"></i>
+                                <div class="tech-name">Cloud Solutions</div>
+                                <small>Services cloud</small>
+                            </div>
+
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="400">
+                                <i class="tech-icon bi bi-window-desktop"></i>
+                                <div class="tech-name">Windows Server</div>
+                                <small>Administration serveur</small>
+                            </div>
+
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="500">
+                                <i class="tech-icon bi bi-terminal"></i>
+                                <div class="tech-name">Linux</div>
+                                <small>Systèmes Unix</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Solutions spécifiques -->
                 <div class="solutions-grid mt-5" data-aos="fade-up">
                     <h3 class="text-center mb-5">Nos Solutions Adaptées</h3>
@@ -948,67 +1036,149 @@
                     </div>
                 </div>
 
-                <!-- Process Section -->
-                <div class="process-section mt-5" data-aos="fade-up">
-                    <h3 class="text-center mb-5">Notre Processus d'Intervention</h3>
-                    <div class="row g-4">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">01</div>
-                                <h4>Analyse</h4>
-                                <p>Évaluation complète de votre infrastructure existante</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">02</div>
-                                <h4>Planification</h4>
-                                <p>Élaboration d'une stratégie personnalisée</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">03</div>
-                                <h4>Implémentation</h4>
-                                <p>Mise en place des solutions optimisées</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">04</div>
-                                <h4>Monitoring</h4>
-                                <p>Suivi continu et maintenance proactive</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enhanced Call to Action -->
-                <div class="cta-section mt-5">
+                <!-- Development Process -->
+                <section class="development-process section">
                     <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-8 text-center text-lg-start">
-                                <h3>Prêt à Optimiser Votre Infrastructure Réseau ?</h3>
-                                <p class="mb-lg-0">Bénéficiez d'une consultation gratuite et d'une analyse personnalisée de vos besoins</p>
+                        <div class="section-title text-center" data-aos="fade-up">
+                            <h2>Notre Processus d'Intervention</h2>
+                            <p>Une approche méthodique pour une infrastructure réseau robuste</p>
+                        </div>
+
+                        <div class="process-timeline">
+                            <div class="timeline-item" data-aos="fade-right">
+                                <div class="timeline-phase">1. Analyse des Besoins</div>
+                                <p>Évaluation approfondie de votre infrastructure existante et identification des points d'amélioration.</p>
                             </div>
-                            <div class="col-lg-4 text-center text-lg-end">
-                                <div class="cta-buttons">
-                                    <a href="javascript:void(0)" onclick="openServiceModal('Network Administration')" class="cta-btn cta-btn-primary">
-                                        <i class="bi bi-headset me-2"></i>
-                                        Parler à un expert
-                                    </a>
-                                </div>
+
+                            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                                <div class="timeline-phase">2. Planification</div>
+                                <p>Élaboration d'une stratégie personnalisée et conception de l'architecture réseau optimale.</p>
+                            </div>
+
+                            <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                                <div class="timeline-phase">3. Implémentation</div>
+                                <p>Mise en place des solutions avec une approche progressive et des tests rigoureux.</p>
+                            </div>
+
+                            <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                                <div class="timeline-phase">4. Configuration</div>
+                                <p>Paramétrage optimal des équipements et mise en place des politiques de sécurité.</p>
+                            </div>
+
+                            <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
+                                <div class="timeline-phase">5. Formation</div>
+                                <p>Formation des utilisateurs et documentation détaillée des procédures.</p>
+                            </div>
+
+                            <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
+                                <div class="timeline-phase">6. Monitoring</div>
+                                <p>Surveillance continue, maintenance proactive et optimisation des performances.</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="section">
+                    <div class="container">
+                        <div class="service-cta">
+                            <h3>Prêt à Sécuriser Votre Infrastructure Réseau ?</h3>
+                            <p>Contactez-nous pour une consultation gratuite et une analyse personnalisée de vos besoins</p>
+                            <div class="mt-4">
+                                <a href="javascript:void(0)" onclick="openServiceModal('Network Administration')" class="btn">
+                                    <i class="bi bi-headset me-2"></i>
+                                    Parler à un Expert
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <!-- [Footer content from index.html] -->
+    
+        <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- À propos -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-about">
+                            <div class="logo d-flex align-items-center">
+                                <span>Bright Smart Service</span>
+                            </div>
+                            <p>Nous créons des solutions digitales innovantes pour transformer votre présence en ligne et stimuler votre croissance.</p>
+                            <div class="social-links d-flex mt-4">
+                                <a href="#" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liens utiles -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4>Liens utiles</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#hero">Accueil</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#about">À propos</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#services">Services</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Nos services -->
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-links">
+                            <h4>Nos services</h4>
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/network-administration.html">Network Administration</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/graphic-design.html">Graphic Design</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/alarm-system.html">Alarm System</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/video-door-phone.html">Video Door Phone</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/software-engineering.html">Software Engineering</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-pages/camera-security.html">Camera Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer-contact">
+                            <h4>Contactez-nous</h4>
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                kano<br>
+                                Bertoua, Cameroun<br><br>
+                                <i class="bi bi-phone"></i> <a href="tel:+237688661642">+237 6 88 66 16 42</a><br>
+                                <i class="bi bi-envelope"></i> <a href="mailto:njonoussistephen@gmail.com">njonoussistephen@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 <strong>Bright Smart Service</strong>. Tous droits réservés</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="credits">
+                            <a href="#">Mentions légales</a> | 
+                            <a href="#">Politique de confidentialité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Service Contact Modal -->
